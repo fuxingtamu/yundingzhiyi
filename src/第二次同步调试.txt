@@ -1,0 +1,14 @@
+添加了一些函数 用于显示有新的不同 git fetch
+def get_changed_files_after_fetch(repo_path, remote='origin', branch='master'):
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--name-only", f"{remote}/{branch}", branch],
+            cwd=repo_path,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True
+        )
+        return result.stdout.strip().split('\n')
+    except subprocess.CalledProcessError as e:
+        print("Failed to get changed files:", e)
+        return []
