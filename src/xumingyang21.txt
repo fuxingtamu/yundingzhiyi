@@ -4,3 +4,6 @@ xumingyang21
 尝试修改查看是否能够获取文件名
 
 增加了git show 看看效果
+
+
+这次是引入了究极的git show的效果
